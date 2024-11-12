@@ -8,7 +8,7 @@ enum LocalRecipeDataSourceError: Error {
     case fileNotFound(String)
 }
 
-class LocalRecipeDataSource {
+class LocalRecipeDataSource: LocalRecipeDataSourceProtocol {
     private let decoder: JSONDecoder
     
     init(decoder: JSONDecoder = JSONDecoder()) {
