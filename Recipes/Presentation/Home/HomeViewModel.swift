@@ -19,4 +19,18 @@ class HomeViewModel {
             showError?("error.fetch-recipes".localized + " " + error.localizedDescription)
         }
     }
+    
+    func searchRecipes(query: String) async {
+        do {
+            guard !query.isEmpty else {
+                await loadRecipes()
+                return
+            }
+            
+            let recipes = try await repository.search(query: query)
+            self.recipes = recipes
+        } catch {
+            showError?("error.search-recipes".localized + " " + error.localizedDescription)
+        }
+    }
 }
