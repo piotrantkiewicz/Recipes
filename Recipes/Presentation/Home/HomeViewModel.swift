@@ -27,7 +27,7 @@ class HomeViewModel {
                 return
             }
             
-            let recipes = try await repository.search(query: query)
+            let recipes = try await repository.search(with: query)
             self.recipes = recipes
         } catch {
             showError?("error.search-recipes".localized + " " + error.localizedDescription)

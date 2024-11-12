@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "D7761A2B-6C24-4F16-B739-4785954E38B0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:Recipes.xcodeproj",
+        "identifier" : "AE70B77E2CE3620B00C7A5BB",
+        "name" : "RecipesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
