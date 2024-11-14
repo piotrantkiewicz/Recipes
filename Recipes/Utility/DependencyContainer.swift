@@ -6,7 +6,11 @@ class DependencyContainer {
         LocalRecipeDataSource()
     }()
     
-    lazy var recipeRepository: RecipeRepository = {
+    lazy var recipeRepository: RecipeRepositoryProtocol = {
         return RecipeRepository(dataSource: recipeDataSource)
+    }()
+    
+    lazy var bookmarkRepository: BookmarkRepositoryProtocol = {
+        BookmarkRepository(userDefaults: .standard)
     }()
 }
