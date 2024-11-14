@@ -22,7 +22,11 @@ class HomeCoordinator: Coordinator {
     }
     
     private func showDetail(for recipe: Recipe) {
-        let coordinator = RecipeDetailCoordinator(container: container, navigationController: navigationController)
+        let coordinator = RecipeDetailCoordinator(
+            id: recipe.id,
+            container: container,
+            navigationController: navigationController
+        )
         coordinator.start()
     }
 }

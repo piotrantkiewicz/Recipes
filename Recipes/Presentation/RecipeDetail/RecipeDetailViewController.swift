@@ -32,6 +32,14 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        fetch()
+    }
+    
+    private func fetch() {
+        Task {
+            await viewModel.loadRecipeDetail()
+            self.tableView.reloadData()
+        }
     }
     
     private func setupUI() {
