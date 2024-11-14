@@ -21,7 +21,16 @@ class HomeCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: false)
     }
     
-    private func showDetail(for: Recipe) {
+    private func showDetail(for recipe: Recipe) {
+        Task {
+            do {
+                let detail = try await self.container.recipeRepository.fetchRecipe(id: recipe.id)
+                print(detail)
+            } catch {
+                print(error)
+            }
+        }
+        
         let coordinator = RecipeDetailCoordinator(container: container, navigationController: navigationController)
         coordinator.start()
     }
