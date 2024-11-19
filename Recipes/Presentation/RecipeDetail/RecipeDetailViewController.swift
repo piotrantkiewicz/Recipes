@@ -32,6 +32,7 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        bindShowError()
         fetch()
     }
     
@@ -57,6 +58,12 @@ class RecipeDetailViewController: UIViewController {
             target: self,
             action: #selector(toggleBookmark)
         )
+    }
+    
+    private func bindShowError() {
+        viewModel.showError = { [weak self] text in
+            self?.showErrorAlert(message: text)
+        }
     }
     
     @objc private func toggleBookmark() {
