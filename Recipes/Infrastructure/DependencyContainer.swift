@@ -7,7 +7,12 @@ class DependencyContainer {
     }()
     
     lazy var recipeRepository: RecipeRepositoryProtocol = {
-        return RecipeRepository(dataSource: recipeDataSource)
+        return RecipeNetworkRepository(networkService: networkService)
+    }()
+    
+    lazy var networkService: NetworkServiceProtocol = {
+        let config = RecipesNetworkConfig()
+        return NetworkService(config: config)
     }()
     
     lazy var bookmarkRepository: BookmarkRepositoryProtocol = {
